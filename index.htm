@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0"
+    />
+    <title>CheapGPT</title>
+  </head>
+  <body>
+    <div id="navBar">
+      <div class="hamBurgBtn material-symbols-rounded">sort</div>
+      <div class="cheapgptMore">
+        CheapGPT
+        <span class="more material-symbols-rounded">keyboard_arrow_down</span>
+      </div>
+    </div>
+    <div id="chatArea">
+      <span id="emptyMsg">What can I help with?</span>
+      <!--
+      <div class="msgBox userMsg">Who are you?</div>
+      <div class="msgBox gptMsg">Hello there! I am CheapGPT</div>
+    --></div>
+    <div id="promptArea">
+      <textarea id="prompt" placeholder="Ask anything"></textarea>
+      <button id="submit" class="material-symbols-rounded">arrow_upward</button>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
