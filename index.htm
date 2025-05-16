@@ -11,22 +11,61 @@
     <title>CheapGPT</title>
   </head>
   <body>
+    <div id="sideBar">
+      <div class="section_1">
+        <div class="search material-symbols-rounded">search</div>
+        <div class="newChatBtn material-symbols-rounded">edit_note</div>
+      </div>
+      <div class="dummyBtns">
+        <div>
+          <span class="img">
+            <img src="./cheap.png" width="24px" />
+          </span>
+          <span class="text">CheapGPT</span>
+        </div>
+        <div>
+          <span class="img material-symbols-rounded">apps</span>
+          <span class="text">Explore GPTs</span>
+        </div>
+      </div>
+      <div class="chatsList">
+        <span class="title">chat#1</span>
+        <span class="title">chat#2</span>
+      </div>
+      <div class="accounts_Section"></div>
+    </div>
     <div id="navBar">
       <div class="hamBurgBtn material-symbols-rounded">sort</div>
       <div class="cheapgptMore">
         CheapGPT
-        <span class="more material-symbols-rounded">keyboard_arrow_down</span>
+        <span style="cursor: pointer" class="more material-symbols-rounded"
+          >keyboard_arrow_down</span
+        >
+        <div class="moreBox">
+          <div>
+            <span>
+              <span> CheapGPT Plus </span>
+              <br />
+              <i>Our smartest model & more</i>
+            </span>
+            <span>Upgrade</span>
+          </div>
+          <div>
+            <span> CheapGPT </span>
+            <span class="material-symbols-rounded">check</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div id="chatArea">
+    <div id="chatArea" class="chatEmpty">
       <span id="emptyMsg">What can I help with?</span>
-      <!--
-      <div class="msgBox userMsg">Who are you?</div>
-      <div class="msgBox gptMsg">Hello there! I am CheapGPT</div>
-    --></div>
+      <div class="wrapper"></div>
+    </div>
     <div id="promptArea">
       <textarea id="prompt" placeholder="Ask anything"></textarea>
-      <button id="submit" class="material-symbols-rounded">arrow_upward</button>
+      <button id="submit" disabled class="material-symbols-rounded">
+        arrow_upward
+      </button>
     </div>
     <script src="main.js"></script>
   </body>
