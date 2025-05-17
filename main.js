@@ -31,8 +31,6 @@ hamBurgBtn.onclick = (op) => {
   });
 };
 
-let chatsData = {};
-
 promptArea.oninput = () => {
   submit.disabled = !promptArea.value.trim();
 };
@@ -44,6 +42,18 @@ window.onkeyup = (e) => {
   }
 };
 
+let chatsData = {};
+let chatsDataTitle = {};
+if (!localStorage.chatsDB) {
+  localStorage.setItem("chatsDB", JSON.stringify(chatsData));
+} else {
+  chatsData = JSON.parse(localStorage.chatsDB);
+}
+if (!localStorage.chatsDBTitle) {
+  localStorage.setItem("chatsDBTitle", JSON.stringify(chatsDataTitle));
+} else {
+  chatsDataTitle = JSON.parse(localStorage.chatsDBTitle);
+}
 submit.onclick = async () => {
   let promptValue = promptArea.value.trim();
   if (!promptValue) return;
@@ -91,37 +101,50 @@ submit.onclick = async () => {
   //
   let id_;
   if (wrapper.classList.contains("newChat")) {
-    id_ = Math.random().toString(36).slice(2);
-    chatsList.innerHTML += `<span id='${id_}' class="title">${promptValue.slice(
-      0,
-      15
-    )}</span>`;
+    let title_in_list = promptValue.slice(0, 15);
+    id_ = Math.random().toString(36).slice(5);
+    chatsList.innerHTML += `<span id='${id_}' class="title">${title_in_list}</span>`;
     //<span class="title">chat#1</span>
     wrapper.classList.add(id_);
     wrapper.classList.remove("newChat");
   }
   chatsData[wrapper.classList[1]] = wrapper.innerHTML;
-  console.log(chatsData);
+  chatsDataTitle[wrapper.classList[1]] = promptValue.slice(0, 15);
+  addDeleteBtn();
+  localStorage.setItem("chatsDB", JSON.stringify(chatsData));
+  localStorage.setItem("chatsDBTitle", JSON.stringify(chatsDataTitle));
 };
-chatsList.querySelectorAll(".title").forEach((t) => {
-  t.oncontextmenu = (e) => {
-    e.preventDefault();
-    if (chatsList.querySelector(".deleteBtn")) {
-      chatsList.querySelector(".deleteBtn").remove();
-    }
-    let deleteBox = document.createElement("div");
-    deleteBox.classList.add("deleteBtn");
-    deleteBox.innerText = "Delete";
-    deleteBox.innerHTML +=
-      '<span class="material-symbols-rounded">delete</span>';
-    t.appendChild(deleteBox);
-    deleteBox.style.right = 5 + "px";
-    deleteBox.style.top = e.y + 20 + "px";
-    console.log(e.x);
-    console.log(e.y);
-  };
-});
-
+chatsDB_Store = JSON.parse(localStorage.chatsDBTitle);
+if (chatsDB_Store) {
+  for (let i in chatsDB_Store) {
+    chatsList.innerHTML += `<span id='${i}' class="title">${i}</span>`;
+  }
+  addDeleteBtn();
+}
+function addDeleteBtn() {
+  chatsList.querySelectorAll(".title").forEach((t) => {
+    t.oncontextmenu = (e) => {
+      e.preventDefault();
+      if (chatsList.querySelector(".deleteBtn")) {
+        chatsList.querySelector(".deleteBtn").remove();
+      }
+      let deleteBox = document.createElement("div");
+      deleteBox.classList.add("deleteBtn");
+      deleteBox.innerText = "Delete";
+      deleteBox.innerHTML +=
+        '<span class="material-symbols-rounded">delete</span>';
+      t.appendChild(deleteBox);
+      deleteBox.style.right = 5 + "px";
+      deleteBox.style.top = e.y + 20 + "px";
+    };
+    t.onclick = () => {
+      wrapper.classList.replace(wrapper.classList[1], t.id);
+      emptyMsg.style.display = "none";
+      wrapper.innerHTML = chatsData[t.id];
+    };
+  });
+}
+//delete
 window.onclick = (e) => {
   let deleteBox = chatsList.querySelector(".deleteBtn");
   if (deleteBox) {
@@ -129,7 +152,18 @@ window.onclick = (e) => {
       deleteBox.remove();
     } else {
       if (confirm("Are you sure you want to delete this?")) {
+        let _id = deleteBox.parentElement.id;
         deleteBox.parentElement.remove();
+        wrapper.classList.add("newChat");
+        if (wrapper.classList.contains(_id)) {
+          wrapper.classList.remove(_id);
+        }
+        wrapper.innerHTML = "";
+        emptyMsg.style.display = "flex";
+        delete chatsData[_id];
+        delete chatsDataTitle[_id];
+        localStorage.setItem("chatsDB", JSON.stringify(chatsData));
+        localStorage.setItem("chatsDBTitle", JSON.stringify(chatsDataTitle));
       }
     }
   }
