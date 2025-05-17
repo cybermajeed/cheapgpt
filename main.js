@@ -92,6 +92,37 @@ submit.onclick = async () => {
   )}</span>`;
   //<span class="title">chat#1</span>
 };
+chatsList.querySelectorAll(".title").forEach((t) => {
+  t.oncontextmenu = (e) => {
+    e.preventDefault();
+    if (chatsList.querySelector(".deleteBtn")) {
+      chatsList.querySelector(".deleteBtn").remove();
+    }
+    let deleteBox = document.createElement("div");
+    deleteBox.classList.add("deleteBtn");
+    deleteBox.innerText = "Delete";
+    deleteBox.innerHTML +=
+      '<span class="material-symbols-rounded">delete</span>';
+    t.appendChild(deleteBox);
+    deleteBox.style.right = 5 + "px";
+    deleteBox.style.top = e.y + 20 + "px";
+    console.log(e.x);
+    console.log(e.y);
+  };
+});
+
+window.onclick = (e) => {
+  let deleteBox = chatsList.querySelector(".deleteBtn");
+  if (deleteBox) {
+    if (e.target != deleteBox) {
+      deleteBox.remove();
+    } else {
+      if (confirm("Are you sure you want to delete this?")) {
+        deleteBox.parentElement.remove();
+      }
+    }
+  }
+};
 
 async function getResponse(promptValue) {
   const API_KEY = `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`;
