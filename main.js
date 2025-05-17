@@ -6,6 +6,8 @@ let chatsList = document.querySelector(".chatsList");
 let chatArea = document.getElementById("chatArea");
 let emptyMsg = document.getElementById("emptyMsg");
 let wrapper = document.querySelector(".wrapper");
+let searchBtn = document.querySelector("#sideBar .search");
+let newChatBtn = document.querySelector("#sideBar .newChatBtn");
 
 let promptArea = document.getElementById("prompt");
 let submit = document.getElementById("submit");
@@ -114,10 +116,10 @@ submit.onclick = async () => {
   localStorage.setItem("chatsDB", JSON.stringify(chatsData));
   localStorage.setItem("chatsDBTitle", JSON.stringify(chatsDataTitle));
 };
-chatsDB_Store = JSON.parse(localStorage.chatsDBTitle);
-if (chatsDB_Store) {
-  for (let i in chatsDB_Store) {
-    chatsList.innerHTML += `<span id='${i}' class="title">${i}</span>`;
+titleStore = JSON.parse(localStorage.chatsDBTitle);
+if (titleStore) {
+  for (let i in titleStore) {
+    chatsList.innerHTML += `<span id='${i}' class="title">${titleStore[i]}</span>`;
   }
   addDeleteBtn();
 }
@@ -194,3 +196,9 @@ async function getResponse(promptValue) {
   submit.innerHTML = "arrow_upward";
   return data.choices?.[0]?.message?.content || "Rate limit exceeded!";
 }
+
+newChatBtn.onclick = () => {
+  wrapper.classList.replace(wrapper.classList[1], "newChat");
+  wrapper.innerHTML = "";
+  emptyMsg.style.display = "flex";
+};
