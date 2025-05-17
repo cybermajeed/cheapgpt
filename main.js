@@ -6,7 +6,6 @@ let chatsList = document.querySelector(".chatsList");
 let chatArea = document.getElementById("chatArea");
 let emptyMsg = document.getElementById("emptyMsg");
 let wrapper = document.querySelector(".wrapper");
-let searchBtn = document.querySelector("#sideBar .search");
 let newChatBtn = document.querySelector("#sideBar .newChatBtn");
 
 let promptArea = document.getElementById("prompt");

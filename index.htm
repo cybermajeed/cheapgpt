@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="cheap.jpg" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0"
@@ -28,13 +29,12 @@
   <body>
     <div id="sideBar">
       <div class="section_1">
-        <div class="search material-symbols-rounded">search</div>
         <div class="newChatBtn material-symbols-rounded">edit_note</div>
       </div>
       <div class="dummyBtns">
         <div>
           <span class="img">
-            <img src="./cheap.png" width="24px" />
+            <img src="./cheap.jpg" width="24px" />
           </span>
           <span class="text">CheapGPT</span>
         </div>
@@ -44,7 +44,6 @@
         </div>
       </div>
       <div class="chatsList"></div>
-      <div class="accounts_Section"></div>
     </div>
     <div id="navBar">
       <div class="hamBurgBtn material-symbols-rounded">sort</div>
@@ -60,7 +59,9 @@
               <br />
               <i>Our smartest model & more</i>
             </span>
-            <span>Upgrade</span>
+            <span class="upgrade" onclick="alert('Sorry you\'re broke!')"
+              >Upgrade</span
+            >
           </div>
           <div>
             <span> CheapGPT </span>
