@@ -9,13 +9,16 @@ body {
   gap: 15px;
   font-family: calibri;
   font-size: 1rem;
-  height: calc(100vh - 20px);
+  height: calc(100dvh - 20px);
   padding-bottom: 20px;
+  padding-top: 10px;
   overflow: hidden;
 }
 * {
   color: #fff;
   transition: all 0.3s;
+
+  box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
@@ -116,6 +119,7 @@ body {
   padding: 10px 15px;
   width: fit-content;
   max-height: fit-content;
+  word-break: break-all;
 }
 #chatArea .wrapper .userMsg {
   background: #2f2f2f;
