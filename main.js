@@ -31,6 +31,8 @@ hamBurgBtn.onclick = (op) => {
   });
 };
 
+let chatsData = {};
+
 promptArea.oninput = () => {
   submit.disabled = !promptArea.value.trim();
 };
@@ -86,11 +88,20 @@ submit.onclick = async () => {
   reply = marked.parse(gptMsg.innerHTML);
   gptMsg.innerHTML = reply;
   chatArea.scrollTop = chatArea.scrollHeight;
-  chatsList.innerHTML += `<span class="title">${promptValue.slice(
-    0,
-    15
-  )}</span>`;
-  //<span class="title">chat#1</span>
+  //
+  let id_;
+  if (wrapper.classList.contains("newChat")) {
+    id_ = Math.random().toString(36).slice(2);
+    chatsList.innerHTML += `<span id='${id_}' class="title">${promptValue.slice(
+      0,
+      15
+    )}</span>`;
+    //<span class="title">chat#1</span>
+    wrapper.classList.add(id_);
+    wrapper.classList.remove("newChat");
+  }
+  chatsData[wrapper.classList[1]] = wrapper.innerHTML;
+  console.log(chatsData);
 };
 chatsList.querySelectorAll(".title").forEach((t) => {
   t.oncontextmenu = (e) => {
