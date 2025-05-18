@@ -181,7 +181,7 @@ async function getResponse(promptValue) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "meta-llama/llama-4-maverick:free",
+      model: "mistralai/mistral-nemo:free",
       messages: [
         {
           role: "user",
