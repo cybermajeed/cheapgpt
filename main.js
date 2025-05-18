@@ -176,7 +176,7 @@ async function getResponse(promptValue) {
     method: "POST",
     headers: {
       Authorization: `Bearer ${API_KEY}`,
-      "HTTP-Referer": "http://localhost",
+      "HTTP-Referer": "https://cybermajeed.github.io",
       "X-Title": "CheapGPT",
       "Content-Type": "application/json",
     },
