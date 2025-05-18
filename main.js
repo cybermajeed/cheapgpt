@@ -174,12 +174,12 @@ async function getResponse(promptValue) {
   const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
     headers: {
-      Authorization: "Bearer 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",
+      Authorization: "Bearer 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",
       "Content-Type": "application/json",
       "HTTP-Referer": "https://cybermajeed.github.io/cheapgpt/", 
     },
     body: JSON.stringify({
-      model: "deepseek/deepseek-r1:free",
+      model: "mistralai/mistral-7b-instruct",
       messages: [
         {
           role: "user",
