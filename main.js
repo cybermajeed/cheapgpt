@@ -175,8 +175,6 @@ async function getResponse(promptValue) {
     method: "POST",
     headers: {
       Authorization: "Bearer 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",
-      "HTTP-Referer": "https://cybermajeed.github.io/cheapgpt",
-      "X-Title": "CheapGPT",
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
