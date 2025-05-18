@@ -171,7 +171,7 @@ window.onclick = (e) => {
 };
 
 async function getResponse(promptValue) {
-  const API_KEY = `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`;
+  const API_KEY = `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`;
   const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
     headers: {
