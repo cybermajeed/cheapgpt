@@ -171,25 +171,19 @@ window.onclick = (e) => {
 };
 
 async function getResponse(promptValue) {
-  const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      Authorization: "Bearer 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",
-      "Content-Type": "application/json",
-      "HTTP-Referer": "https://cybermajeed.github.io", 
-    },
-    body: JSON.stringify({
-      model: "mistralai/mistral-7b-instruct",
-      messages: [
-        {
-          role: "user",
-          content: promptValue,
-        },
-      ],
-    }),
-  });
-  //submit.disabled = false;
-  const data = await res.json();
+const response = await fetch("/api/chat", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    model: "mistralai/mistral-7b-instruct",
+    messages: [
+      { role: "user", content: promptValue }
+    ],
+  }),
+});
+  const data = await response.json();
   submit.innerHTML = "arrow_upward";
   return data.choices?.[0]?.message?.content || "Rate limit exceeded!";
 }
