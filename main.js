@@ -171,17 +171,17 @@ window.onclick = (e) => {
 };
 
 async function getResponse(promptValue) {
-  const API_KEY = `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`;
+  const API_KEY = `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`;
   const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${API_KEY}`,
-      "HTTP-Referer": "https://cybermajeed.github.io",
-      "X-Title": "Cheap GPT",
+      "HTTP-Referer": "https://cybermajeed.github.io/cheapgpt",
+      "X-Title": "CheapGPT",
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "mistralai/mistral-nemo:free",
+      model: "deepseek/deepseek-r1:free",
       messages: [
         {
           role: "user",
