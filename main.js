@@ -174,9 +174,9 @@ async function getResponse(promptValue) {
   const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
     headers: {
-      Authorization: "Bearer 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",
+      Authorization: "Bearer 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",
       "Content-Type": "application/json",
-      "HTTP-Referer": "https://cybermajeed.github.io/cheapgpt/", 
+      "HTTP-Referer": "https://cybermajeed.github.io", 
     },
     body: JSON.stringify({
       model: "mistralai/mistral-7b-instruct",
