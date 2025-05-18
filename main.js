@@ -171,7 +171,7 @@ window.onclick = (e) => {
 };
 
 async function getResponse(promptValue) {
-  const API_KEY = `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`;
+  const API_KEY = `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`;
   const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
     headers: {
@@ -181,7 +181,7 @@ async function getResponse(promptValue) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "deepseek/deepseek-chat:free",
+      model: "deepseek/deepseek-prover-v2:free",
       messages: [
         {
           role: "user",
