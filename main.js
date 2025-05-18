@@ -177,11 +177,11 @@ async function getResponse(promptValue) {
     headers: {
       Authorization: `Bearer ${API_KEY}`,
       "HTTP-Referer": "https://cybermajeed.github.io",
-      "X-Title": "CheapGPT",
+      "X-Title": "Cheap GPT",
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "deepseek/deepseek-prover-v2:free",
+      model: "meta-llama/llama-4-maverick:free",
       messages: [
         {
           role: "user",
