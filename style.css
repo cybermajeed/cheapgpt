@@ -14,7 +14,7 @@ body {
   padding-top: 10px;
   overflow: hidden;
 }
-svg,button,input[type="submit"] {
+class^="material" {
   user-select: none;
 }
 * {
@@ -296,4 +296,5 @@ code {
 .upgrade {
   cursor: pointer;
 }
+
 
