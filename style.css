@@ -14,7 +14,7 @@ body {
   padding-top: 10px;
   overflow: hidden;
 }
-[class^="material"] {
+[class*="material"] {
   user-select: none;
 }
 * {
@@ -296,6 +296,7 @@ code {
 .upgrade {
   cursor: pointer;
 }
+
 
 
 
