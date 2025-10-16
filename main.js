@@ -177,7 +177,7 @@ const response = await fetch("/api/chat", {
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    model: "deepseek-ai/DeepSeek-R1",
+    model: "meta-llama/Meta-Llama-3-8B",
     messages: [
       { role: "user", content: promptValue }
     ],
@@ -193,4 +193,5 @@ newChatBtn.onclick = () => {
   wrapper.innerHTML = "";
   emptyMsg.style.display = "flex";
 };
+
 
